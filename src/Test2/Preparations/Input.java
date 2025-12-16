@@ -6,15 +6,14 @@ public class Input {
     public String inputString()
     {
         Scanner input = new Scanner(System.in);
-        String s = input.nextLine().toString();
-        return s;
+        return input.nextLine();
     }
 
     public int inputInt()
     {
         Scanner input = new Scanner(System.in);
-        int s = (int)input.nextInt();
-        return s;
+        return input.nextInt();
+
     }
 
 }
