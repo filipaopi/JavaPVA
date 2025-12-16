@@ -10,6 +10,7 @@ public class Trida {
         String d= "ahoj";
         int j = 0;
 
+
         int x = a % b;
         System.out.println(x);
 
