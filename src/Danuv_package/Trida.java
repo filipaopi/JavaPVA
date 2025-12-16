@@ -11,6 +11,7 @@ public class Trida {
         int j = 0;
 
 
+
         int x = a % b;
         System.out.println(x);
 
