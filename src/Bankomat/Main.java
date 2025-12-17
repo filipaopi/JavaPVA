@@ -1,14 +1,36 @@
 package Bankomat;
 
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-
         Bankomat atm = new Bankomat("src/Bankomat/Account.txt");
-        System.out.println(atm.GetBalance());
-        atm.vklad(200);
-        System.out.println(atm.GetBalance());
-        atm.vyber(30);
-        System.out.println(atm.GetBalance());
+        Scanner Input = new Scanner(System.in);
+        System.out.println("Pro zůstatek stiskni 1");
+        System.out.println("Pro vklad stiskni 2");
+        System.out.println("Pro výběr stiskni 3");
+        System.out.println("");
+
+        switch (Input.nextInt()) {
+
+            case 1:
+                System.out.println("Zůstatek: = " + String.valueOf(atm.GetBalance()));
+                break;
+
+            case 2:
+                System.out.print("Vlož: ");
+                atm.vklad(Input.nextDouble());
+                System.out.println("balance = " + String.valueOf(atm.GetBalance()));
+                break;
+            case 3:
+                System.out.print("Vyber: ");
+                atm.vyber(Input.nextDouble());
+                System.out.println("balance = " + String.valueOf(atm.GetBalance()));
+                break;
+                default:
+                    break;
+        }
+
     }
 }
