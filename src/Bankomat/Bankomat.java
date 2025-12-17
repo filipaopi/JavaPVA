@@ -10,14 +10,12 @@ public class Bankomat {
     String AccountFile;
     public Bankomat(String AccountFile) {
         this.AccountFile = AccountFile;
-        File file = new File(AccountFile);
     }
 
     public void vklad(double castka){
         double accountBalance;
         try {
             Scanner Account = new Scanner(new File(AccountFile));
-            accountBalance = 1;
             if (Account.hasNextDouble()) {
                 accountBalance = Account.nextDouble();
                 accountBalance = accountBalance + castka;
@@ -38,7 +36,6 @@ public class Bankomat {
         double accountBalance;
         try {
             Scanner Account = new Scanner(new File(AccountFile));
-            accountBalance = 1;
             if (Account.hasNextDouble()) {
                 accountBalance = Account.nextDouble();
                 accountBalance = accountBalance - castka;
