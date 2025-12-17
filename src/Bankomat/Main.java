@@ -24,7 +24,7 @@ public class Main {
                     break;
 
                 case 1:
-                    System.out.println("Zůstatek: = " + (atm.GetBalance()));
+                    System.out.println("Zůstatek: = " + (atm.GetBalance()) + "Kč");
                     System.out.println("Pro pokračování stiskněte 1, pro ukončení stiskněte 0.");
                     switch (Input.nextInt()) {
                         case 0:
@@ -41,7 +41,7 @@ public class Main {
                 case 2:
                     System.out.print("Vlož: ");
                     atm.vklad(Input.nextDouble());
-                    System.out.println("balance = " + (atm.GetBalance()));
+                    System.out.println("Zůstatek: = " + (atm.GetBalance()) + "Kč");
                     System.out.println("Pro pokračování stiskněte 1, pro ukončení stiskněte 0.");
                     switch (Input.nextInt()) {
                         case 0:
@@ -58,7 +58,7 @@ public class Main {
                 case 3:
                     System.out.print("Vyber: ");
                     atm.vyber(Input.nextDouble());
-                    System.out.println("balance = " + (atm.GetBalance()));
+                    System.out.println("Zůstatek: = " + (atm.GetBalance()) + "Kč");
                     System.out.println("Pro pokračování stiskněte 1, pro ukončení stiskněte 0.");
                     switch (Input.nextInt()) {
                         case 0:
@@ -69,7 +69,8 @@ public class Main {
                            Continue = true ;
                            break;
                        default:
-                           throw new RuntimeException("unexpected input, terminating");}
+                           throw new RuntimeException("unexpected input, terminating");
+                    }
                     break;
                 default:
                     throw new RuntimeException("unexpected input, terminating");
