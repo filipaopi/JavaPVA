@@ -15,18 +15,18 @@ public class Main {
         switch (Input.nextInt()) {
 
             case 1:
-                System.out.println("Zůstatek: = " + String.valueOf(atm.GetBalance()));
+                System.out.println("Zůstatek: = " + (atm.GetBalance()));
                 break;
 
             case 2:
                 System.out.print("Vlož: ");
                 atm.vklad(Input.nextDouble());
-                System.out.println("balance = " + String.valueOf(atm.GetBalance()));
+                System.out.println("balance = " + (atm.GetBalance()));
                 break;
             case 3:
                 System.out.print("Vyber: ");
                 atm.vyber(Input.nextDouble());
-                System.out.println("balance = " + String.valueOf(atm.GetBalance()));
+                System.out.println("balance = " + (atm.GetBalance()));
                 break;
                 default:
                     break;
