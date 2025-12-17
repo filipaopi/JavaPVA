@@ -26,51 +26,21 @@ public class Main {
                 case 1:
                     System.out.println("Zůstatek: = " + (atm.GetBalance()) + "Kč");
                     System.out.println("Pro pokračování stiskněte 1, pro ukončení stiskněte 0.");
-                    switch (Input.nextInt()) {
-                        case 0:
-                            Continue = false;
-                            System.out.println("bye");
-                            break;
-                        case 1:
-                            Continue = true ;
-                            break;
-                        default:
-                            throw new RuntimeException("unexpected input, terminating");
-                    }
+                    Continue = restart(Input.nextInt());
                     break;
                 case 2:
                     System.out.print("Vlož: ");
                     atm.vklad(Input.nextDouble());
                     System.out.println("Zůstatek: = " + (atm.GetBalance()) + "Kč");
                     System.out.println("Pro pokračování stiskněte 1, pro ukončení stiskněte 0.");
-                    switch (Input.nextInt()) {
-                        case 0:
-                            Continue = false;
-                            System.out.println("bye");
-                            break;
-                        case 1:
-                            Continue = true ;
-                            break;
-                        default:
-                            throw new RuntimeException("unexpected input, terminating");
-                    }
+                    Continue = restart(Input.nextInt());
                     break;
                 case 3:
                     System.out.print("Vyber: ");
                     atm.vyber(Input.nextDouble());
                     System.out.println("Zůstatek: = " + (atm.GetBalance()) + "Kč");
                     System.out.println("Pro pokračování stiskněte 1, pro ukončení stiskněte 0.");
-                    switch (Input.nextInt()) {
-                        case 0:
-                            Continue = false;
-                            System.out.println("bye");
-                            break;
-                       case 1:
-                           Continue = true ;
-                           break;
-                       default:
-                           throw new RuntimeException("unexpected input, terminating");
-                    }
+                    Continue = restart(Input.nextInt());
                     break;
                 default:
                     throw new RuntimeException("unexpected input, terminating");
@@ -78,4 +48,14 @@ public class Main {
 
         } while (Continue);
     }
+
+
+     public static boolean restart(int input){
+         return switch (input) {
+             case 0 -> false;
+             case 1 -> true;
+             default -> throw new RuntimeException("unexpected input, terminating");
+         };
+    }
+
 }
