@@ -38,12 +38,17 @@ public class Bankomat {
             Scanner Account = new Scanner(new File(AccountFile));
             if (Account.hasNextDouble()) {
                 accountBalance = Account.nextDouble();
-                accountBalance = accountBalance - castka;
-                System.out.println(accountBalance);
-                FileWriter writer = new FileWriter(AccountFile);
-                writer.write(String.valueOf(accountBalance));
-                writer.close();
-                System.out.println("Ok");
+                if (accountBalance < castka){
+                    System.out.println("insufficient balance");
+                }
+                else {
+                    accountBalance = accountBalance - castka;
+                    System.out.println(accountBalance);
+                    FileWriter writer = new FileWriter(AccountFile);
+                    writer.write(String.valueOf(accountBalance));
+                    writer.close();
+                    System.out.println("Ok");
+                }
             }
 
 
