@@ -106,4 +106,7 @@ public class Panel extends JPanel implements ActionListener, KeyListener {
     public int getGROUND_HEIGHT() {
         return GROUND_HEIGHT;
     }
+    public void setGameOver(){
+        gameOver = true;
+    }
 }
