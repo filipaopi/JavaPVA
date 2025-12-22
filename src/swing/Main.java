@@ -5,17 +5,19 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
+        int gameHeight   = 600;
+        int gameWidth = 600;
         JFrame frame=new JFrame();
-        frame.setTitle("Ovladani");
+        frame.setTitle("flappy");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1280,720);
+        frame.setSize(gameWidth,gameHeight);
         frame.setVisible(true);
         frame.setResizable(false);
 
-       // while(true) {
-            Panel panel = new Panel();
+        Panel panel = new Panel(gameWidth, gameHeight);
+        frame.add(panel);
 
-            frame.add(panel);
-       // }
+        frame.setVisible(true);
+        panel.requestFocusInWindow();
     }
 }
