@@ -19,7 +19,7 @@ public class Panel extends JPanel implements ActionListener, KeyListener {
     private static final Font GAME_OVER_FONT = new Font("Times New Roman", Font.BOLD, 60);
     private final Timer timer;
     private final Bird bird;
-    private ArrayList<Pipe> pipes;
+    private final ArrayList<Pipe> pipes;
 
 
     public Panel(int width, int height) {
@@ -134,19 +134,11 @@ public class Panel extends JPanel implements ActionListener, KeyListener {
     }
 
 
-    public int getWIDTH() {
-        return WIDTH;
-    }
-
     public int getHEIGHT() {
         return HEIGHT;
     }
 
     public int getGROUND_HEIGHT() {
         return GROUND_HEIGHT;
-    }
-
-    public void setGameOver(){
-        gameOver = true;
     }
 }
