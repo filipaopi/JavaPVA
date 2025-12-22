@@ -6,17 +6,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class Panel extends JPanel implements ActionListener, KeyListener {
 
     private final int WIDTH;
     private final int HEIGHT;
     private static final int GROUND_HEIGHT = 80;
+    private static final int PIPE_COUNT = 4;
+    private static final int PIPE_SPACING = 350;
     private boolean gameOver = false;
     private static final Font GAME_OVER_FONT = new Font("Times New Roman", Font.BOLD, 60);
     private Timer timer;
     private Bird bird;
     private Pipe pipe;
+    private ArrayList<Pipe> pipes;
 
 
     public Panel(int width, int height) {
@@ -27,8 +31,11 @@ public class Panel extends JPanel implements ActionListener, KeyListener {
         timer.start();
         setFocusable(true);
         addKeyListener(this);
-        pipe = new Pipe(WIDTH, HEIGHT, GROUND_HEIGHT);
-
+        pipes = new ArrayList<>();
+        for (int i = 0; i < PIPE_COUNT; i++) {
+            int startX = WIDTH + i * PIPE_SPACING;
+            pipes.add(new Pipe(startX, HEIGHT, GROUND_HEIGHT));
+        }
 
     }
 
@@ -44,15 +51,46 @@ public class Panel extends JPanel implements ActionListener, KeyListener {
             repaint();
             return;
         }
+
+        Rectangle birdRect = new Rectangle(bird.getX(), bird.getY(), bird.getWidth(), bird.getHeight());
+        for (Pipe pipe : pipes) {
+
+            Rectangle topPipe = new Rectangle(pipe.getX(), 0, pipe.getWidth(), pipe.getHeight());
+            Rectangle bottomPipe = new Rectangle(pipe.getX(), pipe.getHeight() + pipe.getGap(), pipe.getWidth(), getHEIGHT() - pipe.getHeight() - pipe.getGap() - getGROUND_HEIGHT());
+
+            if (birdRect.intersects(topPipe) || birdRect.intersects(bottomPipe)) {
+                gameOver = true;
+                timer.stop();
+                break;
+            }
+        }
+
         update();
         repaint();
 
     }
 
+    private int getFarthestPipeX() {
+        int max = 0;
+        for (Pipe pipe : pipes) {
+            max = Math.max(max, pipe.getX());
+        }
+        return max;
+    }
+
     public void update() {
 
     bird.update();
-    pipe.update();
+        for (Pipe pipe : pipes) {
+            pipe.update();
+
+            if (pipe.getX() + pipe.getWidth() < 0) {
+                pipe.setX(getFarthestPipeX() + PIPE_SPACING);
+                pipe.randomizeHeight();
+            }
+
+        }
+
 
     }
     @Override
@@ -63,7 +101,9 @@ public class Panel extends JPanel implements ActionListener, KeyListener {
         g.setColor(Color.orange);
         g.fillRect(0, HEIGHT- GROUND_HEIGHT, WIDTH, HEIGHT);
         bird.draw(g);
-        pipe.draw(g);
+        for (Pipe pipe : pipes) {
+            pipe.draw(g);
+        }
         if  (gameOver) {
             g.setColor(Color.green);
             g.fillRect(0, 0, WIDTH, HEIGHT);
@@ -106,6 +146,7 @@ public class Panel extends JPanel implements ActionListener, KeyListener {
     public int getGROUND_HEIGHT() {
         return GROUND_HEIGHT;
     }
+
     public void setGameOver(){
         gameOver = true;
     }

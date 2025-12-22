@@ -36,7 +36,8 @@ public class Bird {
     public int getY() {
         return y;
     }
-
+    public int getWidth() {return width;}
+    public int getX() {return x;}
     public int getHeight() {
         return height;
     }
