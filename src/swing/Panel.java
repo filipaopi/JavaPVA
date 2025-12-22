@@ -17,9 +17,8 @@ public class Panel extends JPanel implements ActionListener, KeyListener {
     private static final int PIPE_SPACING = 350;
     private boolean gameOver = false;
     private static final Font GAME_OVER_FONT = new Font("Times New Roman", Font.BOLD, 60);
-    private Timer timer;
-    private Bird bird;
-    private Pipe pipe;
+    private final Timer timer;
+    private final Bird bird;
     private ArrayList<Pipe> pipes;
 
 
