@@ -41,7 +41,7 @@ public class Panel extends JPanel implements ActionListener, KeyListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (bird.getY() == HEIGHT-GROUND_HEIGHT-bird.getHeight()) {
+        if (bird.getY() >= HEIGHT-GROUND_HEIGHT-bird.getHeight()) {
 
             gameOver = true;
         }
