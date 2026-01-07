@@ -15,7 +15,8 @@ public class GameFrame extends JPanel implements MouseMotionListener, MouseListe
 
     Rectangle player = new Rectangle(100,100 , 40, 40);
     boolean GameOver = false;
-    int hp = 400;
+    final int fullHP = 100;
+    int hp = 100;
 
 
     public GameFrame(){
@@ -24,7 +25,7 @@ public class GameFrame extends JPanel implements MouseMotionListener, MouseListe
         new Timer(16, _ -> {
 
             if(!GameOver){
-                if (enemyList.size() < 10) addEnemy();
+                if (enemyList.size() < 30) addEnemy();
                 colisionEnemy();
                 enemyMove();
                 repaint();
@@ -105,7 +106,8 @@ public class GameFrame extends JPanel implements MouseMotionListener, MouseListe
         GameOver = false;
         player.x = 100;
         player.y = 100;
-        hp = 400;
+
+        hp = 100;
 
         repaint();
     }
@@ -119,10 +121,10 @@ public class GameFrame extends JPanel implements MouseMotionListener, MouseListe
         g.fillRect(player.x,  player.y, player.width, player.height);
 
         g.setColor(Color.yellow);
-        g.drawRect(10,10,420, 40);
+        g.drawRect(10,10,fullHP+20, 40);
         g.setColor(Color.RED);
         g.fillRect(20, 20, hp, 20);
-        g.drawString("HP: " + hp, 440, 30);
+        g.drawString("HP: " + fullHP, fullHP+40, 30);
 
         if (!GameOver) {
             for (Rectangle enemy : enemyList) {
