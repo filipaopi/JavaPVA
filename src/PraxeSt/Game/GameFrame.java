@@ -13,6 +13,7 @@ public class GameFrame extends JPanel implements MouseMotionListener, MouseListe
 
     ArrayList<Rectangle> enemyList = new ArrayList<>();
 
+    Font times = new Font("Times New Roman", Font.BOLD, 60);
     Rectangle player = new Rectangle(100,100 , 40, 40);
     boolean GameOver = false;
     final int fullHP = 100;
@@ -56,13 +57,13 @@ public class GameFrame extends JPanel implements MouseMotionListener, MouseListe
 
 
     public void enemyMove(){
-        int speed = 1;
+        int speed = 2;
         Random rand = new Random();
         for (Rectangle enemy:enemyList) {
-            if (player.x > enemy.x) enemy.x+=speed;
-            if (player.x < enemy.x) enemy.x-=speed;
-            if (player.y > enemy.y) enemy.y+=speed;
-            if (player.y < enemy.y) enemy.y-=speed;
+            if ((player.x + (player.width / 2)) > enemy.x) enemy.x+=speed;
+            if ((player.x + (player.width / 2)) < enemy.x) enemy.x-=speed;
+            if ((player.y + (player.height / 2)) > enemy.y) enemy.y+=speed;
+            if ((player.y + (player.height / 2)) < enemy.y) enemy.y-=speed;
         }
 
 
@@ -124,7 +125,7 @@ public class GameFrame extends JPanel implements MouseMotionListener, MouseListe
         g.drawRect(10,10,fullHP+20, 40);
         g.setColor(Color.RED);
         g.fillRect(20, 20, hp, 20);
-        g.drawString("HP: " + fullHP, fullHP+40, 30);
+        g.drawString("HP: " + hp, fullHP+40, 30);
 
         if (!GameOver) {
             for (Rectangle enemy : enemyList) {
@@ -133,10 +134,8 @@ public class GameFrame extends JPanel implements MouseMotionListener, MouseListe
         }
         else {
             g.setColor(Color.RED);
-            g.setFont(new Font("Times New Roman", Font.BOLD, 60));
+            g.setFont(times);
             g.drawString("GAME OVER", 270, 440);
-            repaint();
-
         }
     }
 
