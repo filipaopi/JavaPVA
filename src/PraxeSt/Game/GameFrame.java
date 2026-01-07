@@ -131,6 +131,13 @@ public class GameFrame extends JPanel implements MouseMotionListener, MouseListe
                 g.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
             }
         }
+        else {
+            g.setColor(Color.RED);
+            g.setFont(new Font("Times New Roman", Font.BOLD, 60));
+            g.drawString("GAME OVER", 270, 440);
+            repaint();
+
+        }
     }
 
     @Override
