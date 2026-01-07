@@ -12,9 +12,12 @@ public class GameFrame extends JPanel implements MouseMotionListener, MouseListe
 
 
     ArrayList<Rectangle> enemyList = new ArrayList<>();
-
+    private Image backgroundImage;
+    private Image PlayerImage;
+    private Image EnemyImage;
     Font times = new Font("Times New Roman", Font.BOLD, 60);
-    Rectangle player = new Rectangle(100,100 , 40, 40);
+    Font timesSmall = new Font("Times New Roman", Font.BOLD, 18);
+    Rectangle player = new Rectangle(100,100 , 80, 80);
     boolean GameOver = false;
     final int fullHP = 100;
     int hp = 100;
@@ -23,10 +26,13 @@ public class GameFrame extends JPanel implements MouseMotionListener, MouseListe
     public GameFrame(){
         addMouseMotionListener(this);
         addMouseListener(this);
+        backgroundImage = new ImageIcon("src/PraxeSt/Game/resources/bg.jpg").getImage();
+        PlayerImage = new ImageIcon("src/PraxeSt/Game/resources/PlayerIcon.png").getImage();
+        EnemyImage = new ImageIcon("src/PraxeSt/Game/resources/EnemyIcon.png").getImage();
         new Timer(16, _ -> {
 
             if(!GameOver){
-                if (enemyList.size() < 30) addEnemy();
+                if (enemyList.size() < 10) addEnemy();
                 colisionEnemy();
                 enemyMove();
                 repaint();
@@ -39,7 +45,7 @@ public class GameFrame extends JPanel implements MouseMotionListener, MouseListe
         Random rand = new Random();
         int randomX = rand.nextInt(0, 900);
         int randomY = rand.nextInt(0, 900);
-        enemyList.add(new Rectangle(randomX, randomY, 10, 10));
+        enemyList.add(new Rectangle(randomX, randomY, 30, 30));
 
     }
 
@@ -57,7 +63,7 @@ public class GameFrame extends JPanel implements MouseMotionListener, MouseListe
 
 
     public void enemyMove(){
-        int speed = 2;
+        int speed = 1;
         Random rand = new Random();
         for (Rectangle enemy:enemyList) {
             if ((player.x + (player.width / 2)) > enemy.x) enemy.x+=speed;
@@ -118,18 +124,24 @@ public class GameFrame extends JPanel implements MouseMotionListener, MouseListe
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
         setBackground(Color.black);
+        g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+        g.setColor(Color.black);
+        g.fillRoundRect(-20,-10,fullHP + 110,80,30, 30);
         g.setColor(Color.GREEN);
         g.fillRect(player.x,  player.y, player.width, player.height);
-
+        g.drawImage(PlayerImage, player.x, player.y, player.width, player.height, this);
         g.setColor(Color.yellow);
         g.drawRect(10,10,fullHP+20, 40);
         g.setColor(Color.RED);
         g.fillRect(20, 20, hp, 20);
-        g.drawString("HP: " + hp, fullHP+40, 30);
+        g.setFont(timesSmall);
+        g.drawString("HP: ", fullHP+40, 30);
+        g.drawString(String.valueOf(hp), fullHP+40, 48);
 
         if (!GameOver) {
             for (Rectangle enemy : enemyList) {
-                g.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+               // g.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+                g.drawImage(EnemyImage, enemy.x,enemy.y,enemy.width,enemy.height, this);
             }
         }
         else {
