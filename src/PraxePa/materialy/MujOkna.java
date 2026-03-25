@@ -10,14 +10,14 @@ public class MujOkna extends JFrame {
 
 //        MujPanel panel = new MujPanel();
 
-        KresliciPanel panel = new KresliciPanel();
+//        KresliciPanel panel = new KresliciPanel();
 
 //        KresliciTextPanel panel = new KresliciTextPanel();
 
 //        KresliObrazek panel =new KresliObrazek();
 
 //        Udalosti panel = new Udalosti();
-//        UdalostiKlaves panel = new UdalostiKlaves();
+        UdalostiKlaves panel = new UdalostiKlaves();
 
 //        Casovac panel=new Casovac();
 

@@ -18,7 +18,6 @@ public class Car {
         this.year = year;
         this.vinCode = UUID.randomUUID().toString();
         this.engineType = engineType;
-    //    this.carRecords = new ServiceBook(this);
         carCount++;
     }
 

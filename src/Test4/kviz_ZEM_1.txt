@@ -1,0 +1,30 @@
+Na kterém kontinentu se nachází Egypt?|3 ; Evropa | Asie | Afrika | Jižní Amerika
+Která řeka je nejdelší na světě (podle tradičního školního pojetí)?|2 ; Amazonka | Nil | Kongo | Mississippi
+Jaké je hlavní město Austrálie?|3 ; Sydney | Melbourne | Canberra | Brisbane
+Na kterém světadílu žije nejvíce obyvatel?|3 ; Afrika | Evropa | Asie | Amerika
+Který stát je rozlohou nejmenší na světě?|3 ; Monako | San Marino | Vatikán | Malta
+Jaká je nejvyšší hora světa?|2 ; K2 | Mount Everest | Kangčendženga | Lhoce
+Který oceán je největší na Zemi?|4 ; Atlantský oceán | Indický oceán | Severní ledový oceán | Tichý oceán
+Se kterou zemí má Česká republika nejdelší státní hranici?|3 ; Rakousko | Polsko | Německo | Slovensko
+Jak se jmenuje největší horká poušť na světě?|3 ; Gobi | Kalahari | Sahara | Atacama
+Jaké je hlavní město Japonska?|3 ; Peking | Soul | Tokio | Šanghaj
+Který stát má největší počet obyvatel na světě?|2 ; Čína | Indie | USA | Indonésie
+Na kterém kontinentu leží Brazílie?|3 ; Severní Amerika | Afrika | Jižní Amerika | Asie
+Které pohoří odděluje Evropu a Asii?|3 ; Alpy | Kavkaz | Ural | Himaláj
+Jaký je nejdelší veletok Evropy?|2 ; Dunaj | Volha | Rýn | Labe
+Které moře omývá jižní pobřeží Evropy?|3 ; Baltské moře | Severní moře | Středozemní moře | Černé moře
+Jaké je hlavní město Kanady?|3 ; Toronto | Vancouver | Ottawa | Montreal
+Který stát leží na Pyrenejském poloostrově?|3 ; Francie | Itálie | Španělsko | Belgie
+Jaký je největší ostrov na světě?|3 ; Madagaskar | Borneo | Grónsko | Nová Guinea
+Která řeka protéká Prahou?|2 ; Labe | Vltava | Morava | Odra
+Který stát není členem Evropské unie?|2 ; Švédsko | Norsko | Finsko | Dánsko
+Jaké je hlavní město Itálie?|3 ; Milán | Benátky | Řím | Neapol
+Které pohoří je nejvyšší na světě?|3 ; Andy | Alpy | Himaláj | Kavkaz
+Který oceán omývá západní pobřeží Afriky?|2 ; Indický oceán | Atlantský oceán | Tichý oceán | Severní ledový oceán
+Jaký je největší stát Afriky rozlohou?|3 ; Egypt | Nigérie | Alžírsko | Súdán
+Jaké je hlavní město Spojených států amerických?|2 ; New York | Washington, D.C. | Los Angeles | Chicago
+Která země má tvar „italské boty“?|3 ; Španělsko | Řecko | Itálie | Chorvatsko
+Jaké je hlavní město Rakouska?|3 ; Salzburg | Innsbruck | Vídeň | Graz
+Která řeka se vlévá do Černého moře?|2 ; Rýn | Dunaj | Labe | Volha
+Který kontinent je nejmenší rozlohou?|2 ; Evropa | Austrálie | Jižní Amerika | Antarktida
+Který stát leží celý na jižní polokouli?|2 ; Indie | Austrálie | Mexiko | Egypt

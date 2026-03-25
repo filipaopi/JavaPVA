@@ -24,7 +24,7 @@ public class TimeSpan {
             this.hour = 0;
             this.minute = 0;
             this.second = 0;
-        } else setTime(hour, minute, second);
+        } else setTime(hours, minute, second);
     }
 
     public TimeSpan(TimeSpan timeSpan) {
@@ -38,9 +38,7 @@ public class TimeSpan {
 
         if (hours < 0 || minutes < 0 || seconds < 0) {
             this.hour = this.minute = this.second = 0;
-            return;
         }
-
 
         if (seconds >= 60) {
             minutes += seconds / 60;
@@ -62,6 +60,7 @@ public class TimeSpan {
         return second + hour / 3600 + minute / 60;
     }
 
+
     public TimeSpan add(int seconds) {
         this.second = second + seconds;
 
@@ -79,13 +78,11 @@ public class TimeSpan {
     }
 
     @Override
-    public String toString() {
-        return hour + " hours " + minute + " minutes " + second + " seconds";
-    }
+    public String toString() {return hour + " hours " + minute + " minutes " + second + " seconds";}
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        if (super.equals(o)) return true;
         TimeSpan other = (TimeSpan) o;
         return this.getTotalSeconds() == other.getTotalSeconds();
     }
