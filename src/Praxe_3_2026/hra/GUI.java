@@ -31,6 +31,8 @@ public class GUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         initializeComponents();
+        setBackground(new Color(222, 20, 20));
+
         setVisible(true);
 
 
@@ -70,11 +72,9 @@ public class GUI extends JFrame {
         add(incorrectLbl);
         add(userInputBox);
 
-        num1lbl.setText("0");
-        num2lbl.setText("1");
-        isCorrectLbl.setText("2");
-        correctLbl.setText("3");
-        incorrectLbl.setText("4");
+        userInputBox.addActionListener(e -> {verify();});
+
+
 
         newGame();
         verify();
@@ -84,6 +84,9 @@ public class GUI extends JFrame {
         Logic.generateNumbers();
         correctAmount = 0;
         incorrectAmount = 0;
+        correctLbl.setText("Správně: " + correctAmount);
+        incorrectLbl.setText("Špatně: " + incorrectAmount);
+        isCorrectLbl.setText("");
 
     }
 
@@ -99,6 +102,7 @@ public class GUI extends JFrame {
         Logic.generateNumbers();
         num1lbl.setText(String.valueOf(Logic.getFirstNum()));
         num2lbl.setText(String.valueOf(Logic.getSecondNum()));
+        userInputBox.setText("");
 
     }
 }
