@@ -11,7 +11,7 @@ public class Sort {
 
 
         if (!isSorted(list)) {
-            sort(list);
+            BubbleSort.sort(list);
 
         }
         printArray(list);
@@ -31,7 +31,8 @@ public class Sort {
             if (list.get(i) > list.get(i + 1)) {
                 return false;
             }
-        }   return true;
+        }
+        return true;
     }
 
     private static void swap(ArrayList<Integer> list, int i, int j) {
@@ -40,20 +41,39 @@ public class Sort {
         list.set(j, temp);
     }
 
-    private static void sort(ArrayList<Integer> list) {
-        for (int i = 0; i < list.size() - 1; i++) {
-            for (int j = i + 1; j < list.size(); j++) {
-                if (list.get(j) < list.get(i)) {
-                    swap(list, i, j);
+    private static void printArray(ArrayList<Integer> list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + " ");
+        }
+    }
+
+    private class SelectionSort {
+
+        private static void sort(ArrayList<Integer> list) {
+            for (int i = 0; i < list.size() - 1; i++) {
+                for (int j = i + 1; j < list.size(); j++) {
+                    if (list.get(j) < list.get(i)) {
+                        swap(list, i, j);
+                    }
                 }
             }
         }
     }
 
-    private static void printArray(ArrayList<Integer> list) {
-        for (int i = 0; i < list.size(); i++) {
-            System.out.print(list.get(i) + " ");
+    private class BubbleSort {
+        private static void sort(ArrayList<Integer> list) {
+            while (!isSorted(list)) {
+                for (int i = 0; i < list.size() - 1; i++) {
+                    if (list.get(i) > list.get(i + 1)) {
+                        swap(list, i, i + 1);
+                    }
+                }
+            }
         }
+    }
+
+    private class InsertionSort {
+        private static void sort(ArrayList<Integer> list) {}
     }
 
 }
